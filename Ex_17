@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct{
+    float x,y;
+}vetor;
+
+float soma_vetor(vetor *v1, vetor *v2){
+    float soma;
+        soma = v1->x + v1->y + v2->x + v2->y;
+        return soma;
+}
+
+
+int main() {
+    vetor *v1, *v2;
+    v1 = (vetor *)malloc(sizeof(vetor));
+    v2 = (vetor *)malloc(sizeof(vetor));
+    scanf("%f %f %f %f", &v1->x, &v1->y, &v2->x, &v2->y);
+    printf("%f", soma_vetor(v1, v2));
+
+    free(v1);
+    free(v2);
+    return 0;
+}
