@@ -1,0 +1,24 @@
+#include <stdio.h>
+#define MAX 100
+
+int soma(int v[MAX], int N){
+    int j, a = 0;
+    for (j=0; j<N; j++){
+    a = v[j] + a;
+    }
+
+    return a;
+}
+
+int main() {
+    int v[MAX] = {0};
+    int N, i;
+
+    scanf("%d", &N);
+    for(i=0; i<N; i++){
+        scanf("%d", &v[i]);
+    }
+    printf("%d", soma(v, N));
+
+    return 0;
+}
