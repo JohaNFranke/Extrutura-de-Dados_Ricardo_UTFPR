@@ -1,0 +1,27 @@
+#include <stdio.h>
+#define LINHA 3
+#define COLUNA 3
+
+void transposta(int A[][COLUNA]){
+    int i,j,N=LINHA,M=COLUNA,aux;
+    for(i=0;i<N;i++){
+        for(j=i+1;j<M;j++){
+            aux = A[i][j];
+            A[i][j]=A[j][i];
+            A[j][i]=aux;
+        }
+    }
+}
+
+int main() {
+    int k,l;
+    int A[LINHA][COLUNA]={{1,2,3},{4,5,6},{7,8,9}};
+    transposta(A);
+    for(k=0;k<LINHA;k++){
+        for(l=0;l<COLUNA;l++) {
+            printf("%d ", A[k][l]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
