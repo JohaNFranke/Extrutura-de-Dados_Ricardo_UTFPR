@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 5
+
+void inverte(int *v,int N){
+    int i,j,aux;
+    for(i=0;i<N/2;i++){
+        j=N-i-1;
+        aux = v[i];
+        v[i] = v[j];
+        v[j] = aux;
+    }
+}
+
+int main() {
+
+    int k,N = MAX;
+    int v[MAX]={1,2,3,4,5};
+    inverte(v, N);
+    for(k=0;k<N;k++) {
+        printf("%d", v[k]);
+    }
+
+    return 0;
+}
+
