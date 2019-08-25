@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int substring(char *s1, char *s2){
+    int a,b,c=0,i,j;
+    a=strlen(s1);
+    b=strlen(s2);
+    if(a>b){
+        for(i=0;i<a;i++){
+            if(s2[0]==s1[i]){
+                for(j=0;j<b;j++){
+                    if(s2[j]==s1[i]){
+                        c++;
+                        i++;
+                    }else{
+                        return 0;
+                    }
+                }
+
+            }
+        }
+        if(c==b){
+            return 1;
+        }
+    }else
+        return 0;
+
+
+
+}
+
+int main() {
+    char s1[] = {"bacia"};
+    char s2[] = {"cia"};
+
+    printf("%d", substring(s1,s2));
+    return 0;
+}
