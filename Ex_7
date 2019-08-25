@@ -1,0 +1,28 @@
+#include <stdio.h>
+#define MAX 12
+
+void selectionsort(int *v, int N){
+    int aux,i,j,min;
+    for(i=0;i<N-1;i++){
+        min=i;
+        for(j=i+1;j<N;j++) {
+            if (v[j] < v[min])
+                min = j;
+        }
+            if (v[i]!=v[min]){
+                aux = v[i];
+                v[i] = v[min];
+                v[min] = aux;
+            }
+    }
+}
+
+int main() {
+    int i, N=MAX;
+    int v[MAX]={6,76,20,8,1,5,3,2,11,5,6,4};
+    selectionsort(v, N);
+    for(i=0;i<N;i++){
+        printf("%d ", v[i]);
+    }
+    return 0;
+}
