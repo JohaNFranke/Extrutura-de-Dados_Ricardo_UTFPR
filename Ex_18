@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+    int numerador,denominador;
+}fracao;
+
+fracao somafracao(fracao *f1, fracao *f2){
+    fracao *soma;
+    soma = (fracao *)malloc(sizeof(fracao));
+    int multiplod1, multiplod2,multiplon1, multiplon2,somanume;
+    int i = 1, j =1;
+
+    if(f1->denominador != f2->denominador) {
+
+        multiplod1 = f1->denominador;
+        multiplod2 = f2->denominador;
+        multiplon1 = f1->numerador * f2->denominador;
+        multiplon2 = f2->numerador * f1->denominador;
+        somanume = multiplon1 + multiplon2;
+
+        while (multiplod1 != multiplod2) {
+            multiplod1 = f1->denominador * i;
+            if (multiplod1 > multiplod2) {
+                multiplod2 = f2->denominador * j;
+                j++;
+            }
+            if (multiplod1 < multiplod2){
+                i++;
+            }
+            else if(multiplod1 == multiplod2) {
+                soma->numerador = somanume;
+                soma->denominador = multiplod1;
+                return *soma;
+            }
+        }
+    }else{
+        soma->numerador = f1->numerador + f2->numerador;
+        soma->denominador = f1->denominador;
+    }
+    return *soma;
+}
+
+int main() {
+
+    fracao *f1,*f2;
+
+    f1 = (fracao *)malloc(sizeof(fracao));
+    f2 = (fracao *)malloc(sizeof(fracao));
+
+    scanf("%d %d", &f1->numerador, &f1->denominador);
+    scanf("%d %d", &f2->numerador, &f2->denominador);
+
+    printf("%d/%d\n", somafracao(f1, f2));
+
+    free(f1);
+    free(f2);
+
+    return 0;
+}
