@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+
+    int a,i,j,k,aux;
+    int N[20];
+
+    for(a=0;a<20;a++){
+        scanf("%d", &N[a]);
+    }
+
+    for(i=0;i<10;i++) {
+        j = 20 - i - 1;
+        aux = N[i];
+        N[i] = N[j];
+        N[j] = aux;
+    }
+
+    for(k=0;k<20;k++){
+        printf("N[%d] = %d\n", k, N[k]);
+    }
+
+    return 0;
+}
